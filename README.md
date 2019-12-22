@@ -1,3 +1,3 @@
 # My Repository
 
-Where there is light, there are shadows...
+Welcome to Yau Ho Fung's personal repository!
