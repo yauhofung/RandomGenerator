@@ -41,8 +41,8 @@ int main()
         	        {       cout<<char(rand()%95+32);}}
 
 		else //invalid input
-		{	cout<<"\nInvalid selection! Please try again.\n\n";}}
+		{	throw "Invalid selection";}}
 
-	        return 0;}
+	return 0;}
 
 //ALWAYS DOUBLE CHECK ALL COUT INDENTATIONS BEFORE SAVING!!!
