@@ -12,7 +12,7 @@ int main()
 	bool loop = true;
 	while (loop)
 	{
-		cout << "Select a random generator:\n";
+		cout << "\nSelect a random generator:\n";
 		cout << "(1) Single Digit\n";
 		cout << "(2) Single Character\n";
 		cout << "(3) Matrix Digits\n";
