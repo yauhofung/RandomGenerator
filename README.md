@@ -1,3 +1,3 @@
-# My Repository
+# C++ Random Generator
 
-Where there is light, there are shadows...
+Welcome to Yau Ho's Random Generator repository!
