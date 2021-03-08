@@ -1,60 +1,105 @@
 #include <iostream>
-#include <stdlib.h>
-#include <time.h>
-#include <string>
-#include <sstream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main()
-{	srand(time(NULL));
+{
+	srand(time(NULL));
 
 	int selection;
 
-	bool loop=true;
-	while(loop)
-	{	cout<<"Select your random generation:\n";
-		cout<<"(1) Single Digit\n";
-		cout<<"(2) Single Character\n";
-		cout<<"(3) Matrix Digits\n";
-		cout<<"(4) Matrix Characters\n";
-		cout<<"(5) Chaotic Digits\n";
-		cout<<"(6) Chaotic Characters\n";
-		cout<<"To terminate, press Ctrl+C. ";
-		cin>>selection;
+	bool loop = true;
+	while (loop)
+	{
+		cout << "Select a random generator:\n";
+		cout << "(1) Single Digit\n";
+		cout << "(2) Single Character\n";
+		cout << "(3) Matrix Digits\n";
+		cout << "(4) Matrix Characters\n";
+		cout << "(5) Chaotic Digits\n";
+		cout << "(6) Chaotic Characters\n";
+		cout << "To terminate, press Ctrl + C. ";
+		cin >> selection;
 
-		if(selection==1) //single digit
-		{	cout<<rand()%10<<"\n";} //0 to 9
+		// single digit
+		if (selection == 1)
+		{
+			// 0 to 9
+			cout << "Your random digit: " << rand() % 10 << "\n";
+		}
 
-		else if(selection==2) //single character
-		{	cout<<char(rand()%95+32)<<"\n";} //32 to 126
+		// single character
+		else if (selection == 2)
+		{
+			// 32 to 126
+			cout << "Your random character: " << char(rand() % 95 + 32) << "\n";
+		}
 
-		else if(selection==3) //matrix digits
-		{	while(loop)
-			{	if(rand()%6==0) //1-in-6 chance of printing a space
-				{	cout<<' ';}
+		// matrix digits
+		else if (selection == 3)
+		{
+			while (loop)
+			{
+				// 1-in-6 chance of printing a space
+				if (rand() % 6 == 0)
+				{
+					cout << ' ';
+				}
 				else
-				{	cout<<rand()%10;} //0 to 9
-				cout<< "	";}}
+				{
+					// 0 to 9
+					cout << rand() % 10;
+				}
+				cout << "	";
+			}
+		}
 
-		else if(selection==4) //matrix characters
-		{	while(loop)
-			{	if(rand()%6==0) //1-in-6 chance of printing a space
-				{	cout<<' ';}
+		// matrix characters
+		else if (selection == 4)
+		{
+			while (loop)
+			{
+				// 1-in-6 chance of printing a space
+				if (rand() % 6 == 0)
+				{
+					cout << ' ';
+				}
 				else
-				{	cout<<char(rand()%94+33);} //33 to 126
-				cout<< "	";}}
+				{
+					// 33 to 126
+					cout << char(rand() % 94 + 33);
+				}
+				cout << "	";
+			}
+		}
 
-		else if(selection==5) //chaotic digits
-		{	while(loop)
-			{	cout<<rand()%10;}} //0 to 9
+		// chaotic digits
+		else if (selection == 5)
+		{
+			while (loop)
+			{
+				// 0 to 9
+				cout << rand() % 10;
+			}
+		}
 
-		else if(selection==6) //chaotic characters
-		{	while(loop)
-			{	cout<<char(rand()%95+32);}} //32 to 126
+		// chaotic characters
+		else if (selection == 6)
+		{
+			while (loop)
+			{
+				// 32 to 126
+				cout << char(rand() % 95 + 32);
+			}
+		}
 
-		else //invalid input
-		{	cout<<"Invalid selection.\n";}}
+		// invalid input
+		else
+		{
+			cout << "Invalid selection.\n";
+		}
+	}
 
-	return 0;}
-
-//ENSURE ALL COUT INDENTATIONS ARE AT MAX LENGTH BEFORE SAVING!!!
+	return 0;
+}
