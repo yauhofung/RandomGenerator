@@ -38,7 +38,7 @@ void displayGeneratorMenu()
 	cout << "\n(0) Go Back\n";
 	cout << "(1) Single\n";
 	cout << "(2) Columns\n";
-	cout << "(0) Unformatted\n";
+	cout << "(3) Unformatted\n";
 	cout << "Note: Press Ctrl + C to terminate.\n";
 	cout << "Select a random generator: ";
 }
