@@ -3,103 +3,217 @@
 #include <ctime>
 using namespace std;
 
+// returns random bit
+int generateBinary()
+{
+	return char(rand() % 2);
+}
+
+// returns random digit
+int generateDecimal()
+{
+	return rand() % 10;
+}
+
+// returns random character
+char generateCharacter()
+{
+	return rand() % 94 + 33;
+}
+
+// displays random generator modes
+void displayModeMenu()
+{
+	cout << "\n(0) Exit\n";
+	cout << "(1) Binary\n";
+	cout << "(2) Decimal\n";
+	cout << "(3) Character\n";
+	cout << "(4) File (WIP)\n";
+	cout << "Select a mode: ";
+}
+
+// displays random generator options
+void displayGeneratorMenu()
+{
+	cout << "\n(0) Go Back\n";
+	cout << "(1) Single\n";
+	cout << "(2) Columns\n";
+	cout << "(0) Unformatted\n";
+	cout << "Note: Press Ctrl + C to terminate.\n";
+	cout << "Select a random generator: ";
+}
+
 int main()
 {
 	srand(time(NULL));
 
-	int selection;
+	cout << "\n===== Fung's Random Generator =====\n";
 
-	bool loop = true;
-	while (loop)
+	bool modeLoop = true;
+	while (modeLoop)
 	{
-		cout << "\nSelect a random generator:\n";
-		cout << "(1) Single Digit\n";
-		cout << "(2) Single Character\n";
-		cout << "(3) Matrix Digits\n";
-		cout << "(4) Matrix Characters\n";
-		cout << "(5) Chaotic Digits\n";
-		cout << "(6) Chaotic Characters\n";
-		cout << "To terminate, press Ctrl + C. ";
-		cin >> selection;
+		displayModeMenu();
+		int mode;
+		cin >> mode;
 
-		// single digit
-		if (selection == 1)
+		// program exit
+		if (mode == 0)
 		{
-			// 0 to 9
-			cout << "Your random digit: " << rand() % 10 << "\n";
+			modeLoop = false;
 		}
 
-		// single character
-		else if (selection == 2)
+		// binary mode
+		else if (mode == 1)
 		{
-			// 32 to 126
-			cout << "Your random character: " << char(rand() % 95 + 32) << "\n";
-		}
-
-		// matrix digits
-		else if (selection == 3)
-		{
-			while (loop)
+			bool generatorLoop = true;
+			while (generatorLoop)
 			{
-				// 1-in-6 chance of printing a space
-				if (rand() % 6 == 0)
+				displayGeneratorMenu();
+				int generator;
+				cin >> generator;
+
+				// binary mode exit
+				if (generator == 0)
 				{
-					cout << ' ';
+					generatorLoop = false;
 				}
+
+				// single binary
+				else if (generator == 1)
+				{
+					cout << "Your random bit: " << generateBinary() << endl;
+				}
+
+				// binary columns
+				else if (generator == 2)
+				{
+					while (true)
+					{
+						cout << generateBinary() << "	";
+					}
+				}
+
+				// unformatted binaries
+				else if (generator == 3)
+				{
+					while (true)
+					{
+						cout << generateBinary();
+					}
+				}
+
+				// invalid generator
 				else
 				{
-					// 0 to 9
-					cout << rand() % 10;
+					cout << "Invalid option.\n";
 				}
-				cout << "	";
 			}
 		}
 
-		// matrix characters
-		else if (selection == 4)
+		// decimal mode
+		else if (mode == 2)
 		{
-			while (loop)
+			bool generatorLoop = true;
+			while (generatorLoop)
 			{
-				// 1-in-6 chance of printing a space
-				if (rand() % 6 == 0)
+				displayGeneratorMenu();
+				int generator;
+				cin >> generator;
+
+				// decimal mode exit
+				if (generator == 0)
 				{
-					cout << ' ';
+					generatorLoop = false;
 				}
+
+				// single decimal
+				else if (generator == 1)
+				{
+					cout << "Your random digit: " << generateDecimal() << endl;
+				}
+
+				// decimal columns
+				else if (generator == 2)
+				{
+					while (true)
+					{
+						cout << generateDecimal() << "	";
+					}
+				}
+
+				// unformatted decimals
+				else if (generator == 3)
+				{
+					while (true)
+					{
+						cout << generateDecimal();
+					}
+				}
+
+				// invalid generator
 				else
 				{
-					// 33 to 126
-					cout << char(rand() % 94 + 33);
+					cout << "Invalid option.\n";
 				}
-				cout << "	";
 			}
 		}
 
-		// chaotic digits
-		else if (selection == 5)
+		// character mode
+		else if (mode == 3)
 		{
-			while (loop)
+			bool generatorLoop = true;
+			while (generatorLoop)
 			{
-				// 0 to 9
-				cout << rand() % 10;
+				displayGeneratorMenu();
+				int generator;
+				cin >> generator;
+
+				// character mode exit
+				if (generator == 0)
+				{
+					generatorLoop = false;
+				}
+
+				// single character
+				else if (generator == 1)
+				{
+					cout << "Your random character: " << generateCharacter() << endl;
+				}
+
+				// character columns
+				else if (generator == 2)
+				{
+					while (true)
+					{
+						cout << generateCharacter() << "	";
+					}
+				}
+
+				// unformatted characters
+				else if (generator == 3)
+				{
+					while (true)
+					{
+						cout << generateCharacter();
+					}
+				}
+
+				// invalid generator
+				else
+				{
+					cout << "Invalid option.\n";
+				}
 			}
 		}
 
-		// chaotic characters
-		else if (selection == 6)
-		{
-			while (loop)
-			{
-				// 32 to 126
-				cout << char(rand() % 95 + 32);
-			}
-		}
-
-		// invalid input
+		// invalid mode
 		else
 		{
-			cout << "Invalid selection.\n";
+			cout << "Invalid mode.\n";
 		}
 	}
+
+	cout << "Thanks for using Fung's Random Generator!\n";
 
 	return 0;
 }
