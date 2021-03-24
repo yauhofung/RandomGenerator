@@ -6,7 +6,7 @@ using namespace std;
 // returns random bit
 int generateBinary()
 {
-	return char(rand() % 2);
+	return rand() % 2;
 }
 
 // returns random digit
