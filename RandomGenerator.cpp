@@ -169,9 +169,9 @@ int main()
 {
 	srand(time(NULL));
 
-	cout << "\n===== Fung's Random Generator =====\n";
+	cout << "\n===== Yau Ho's Random Generator =====\n";
 	startProgram();
-	cout << "Thanks for using Fung's Random Generator!\n";
+	cout << "Thanks for using Yau Ho's Random Generator!\n";
 
 	return 0;
 }
