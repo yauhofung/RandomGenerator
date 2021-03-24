@@ -21,7 +21,7 @@ char generateCharacter()
 	return rand() % 94 + 33;
 }
 
-// displays random generator modes
+// displays generator modes
 void displayModeMenu()
 {
 	cout << "\n(0) Exit\n";
@@ -29,10 +29,10 @@ void displayModeMenu()
 	cout << "(2) Decimal\n";
 	cout << "(3) Character\n";
 	cout << "(4) File (WIP)\n";
-	cout << "Select a mode: ";
+	cout << "Select a generator mode: ";
 }
 
-// displays random generator options
+// displays generator options
 void displayGeneratorMenu()
 {
 	cout << "\n(0) Go Back\n";
@@ -40,7 +40,7 @@ void displayGeneratorMenu()
 	cout << "(2) Columns\n";
 	cout << "(3) Unformatted\n";
 	cout << "Note: Press Ctrl + C to terminate.\n";
-	cout << "Select a random generator: ";
+	cout << "Select a generator option: ";
 }
 
 int main()
