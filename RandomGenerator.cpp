@@ -43,66 +43,113 @@ void displayGeneratorMenu()
 	cout << "Select a generator option: ";
 }
 
-int main()
+// processes mode and generator selections
+void startGenerator(string mode, string generator)
 {
-	srand(time(NULL));
+	// single
+	if (generator == "1")
+	{
+		// binary
+		if (mode == "1")
+		{
+			cout << "Your random bit: " << generateBinary() << endl;
+		}
+		// decimal
+		else if (mode == "2")
+		{
+			cout << "Your random digit: " << generateDecimal() << endl;
+		}
+		// character
+		else if (mode == "3")
+		{
+			cout << "Your random character: " << generateCharacter() << endl;
+		}
+	}
+	// columns
+	else if (generator == "2")
+	{
+		while (true)
+		{
+			// binary
+			if (mode == "1")
+			{
+				cout << generateBinary() << "	";
+			}
+			// decimal
+			else if (mode == "2")
+			{
+				cout << generateDecimal() << "	";
+			}
+			// character
+			else if (mode == "3")
+			{
+				cout << generateCharacter() << "	";
+			}
+		}
+	}
+	// unformatted
+	else if (generator == "3")
+	{
+		while (true)
+		{
+			// binary
+			if (mode == "1")
+			{
+				cout << generateBinary();
+			}
+			// decimal
+			else if (mode == "2")
+			{
+				cout << generateDecimal();
+			}
+			// character
+			else if (mode == "3")
+			{
+				cout << generateCharacter();
+			}
+		}
+	}
+}
 
-	cout << "\n===== Fung's Random Generator =====\n";
-
-	bool modeLoop = true;
-	while (modeLoop)
+// starts program
+void startProgram()
+{
+	bool programLoop = true;
+	while (programLoop)
 	{
 		displayModeMenu();
-		int mode;
-		cin >> mode;
+		string mode;
+		getline(cin, mode);
 
-		// program exit
-		if (mode == 0)
+		// exits program
+		if (mode == "0")
 		{
-			modeLoop = false;
+			programLoop = false;
 		}
 
-		// binary mode
-		else if (mode == 1)
+		// enters generator mode
+		else if (mode == "1" || mode == "2" || mode == "3")
 		{
-			bool generatorLoop = true;
-			while (generatorLoop)
+			bool modeLoop = true;
+			while (modeLoop)
 			{
 				displayGeneratorMenu();
-				int generator;
-				cin >> generator;
+				string generator;
+				getline(cin, generator);
 
-				// binary mode exit
-				if (generator == 0)
+				// exits generator mode
+				if (generator == "0")
 				{
-					generatorLoop = false;
+					modeLoop = false;
 				}
 
-				// single binary
-				else if (generator == 1)
+				// starts random generator
+				else if (generator == "1" || generator == "2" || generator == "3")
 				{
-					cout << "Your random bit: " << generateBinary() << endl;
+					startGenerator(mode, generator);
 				}
 
-				// binary columns
-				else if (generator == 2)
-				{
-					while (true)
-					{
-						cout << generateBinary() << "	";
-					}
-				}
-
-				// unformatted binaries
-				else if (generator == 3)
-				{
-					while (true)
-					{
-						cout << generateBinary();
-					}
-				}
-
-				// invalid generator
+				// detects invalid generator
 				else
 				{
 					cout << "Invalid option.\n";
@@ -110,109 +157,20 @@ int main()
 			}
 		}
 
-		// decimal mode
-		else if (mode == 2)
-		{
-			bool generatorLoop = true;
-			while (generatorLoop)
-			{
-				displayGeneratorMenu();
-				int generator;
-				cin >> generator;
-
-				// decimal mode exit
-				if (generator == 0)
-				{
-					generatorLoop = false;
-				}
-
-				// single decimal
-				else if (generator == 1)
-				{
-					cout << "Your random digit: " << generateDecimal() << endl;
-				}
-
-				// decimal columns
-				else if (generator == 2)
-				{
-					while (true)
-					{
-						cout << generateDecimal() << "	";
-					}
-				}
-
-				// unformatted decimals
-				else if (generator == 3)
-				{
-					while (true)
-					{
-						cout << generateDecimal();
-					}
-				}
-
-				// invalid generator
-				else
-				{
-					cout << "Invalid option.\n";
-				}
-			}
-		}
-
-		// character mode
-		else if (mode == 3)
-		{
-			bool generatorLoop = true;
-			while (generatorLoop)
-			{
-				displayGeneratorMenu();
-				int generator;
-				cin >> generator;
-
-				// character mode exit
-				if (generator == 0)
-				{
-					generatorLoop = false;
-				}
-
-				// single character
-				else if (generator == 1)
-				{
-					cout << "Your random character: " << generateCharacter() << endl;
-				}
-
-				// character columns
-				else if (generator == 2)
-				{
-					while (true)
-					{
-						cout << generateCharacter() << "	";
-					}
-				}
-
-				// unformatted characters
-				else if (generator == 3)
-				{
-					while (true)
-					{
-						cout << generateCharacter();
-					}
-				}
-
-				// invalid generator
-				else
-				{
-					cout << "Invalid option.\n";
-				}
-			}
-		}
-
-		// invalid mode
+		// detects invalid mode
 		else
 		{
 			cout << "Invalid mode.\n";
 		}
 	}
+}
 
+int main()
+{
+	srand(time(NULL));
+
+	cout << "\n===== Fung's Random Generator =====\n";
+	startProgram();
 	cout << "Thanks for using Fung's Random Generator!\n";
 
 	return 0;
